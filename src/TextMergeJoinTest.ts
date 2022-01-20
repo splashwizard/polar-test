@@ -5,7 +5,7 @@ import IPDFTextWord = TextMergeJoin.IPDFTextWord;
 describe("TextMergeJoin", function() {
 
     it("basic", () => {
-
+        let d = TextMergeJoin.doMergeWords(MERGE_DATA);
         assert.deepEqual(TextMergeJoin.doMergeWords(MERGE_DATA), [
             {
                 "pageNum": 1,

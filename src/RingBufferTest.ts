@@ -16,6 +16,7 @@ describe("RingBuffer", function() {
 
         assert.isUndefined(rb.peek());
 
+        console.log('rb', rb);
     });
 
     it("lost data", function() {

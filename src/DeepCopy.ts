@@ -1,3 +1,6 @@
+interface LooseObject {
+    [key: string]: any
+}
 export namespace DeepCopy {
 
     /**
@@ -32,9 +35,16 @@ export namespace DeepCopy {
      *
      */
     export function deepCopy<T extends any>(source: T): T {
-
+        if(Array.isArray(source)) {
+            return source.slice() as T;
+        }
+        let sourceObj: LooseObject = source as LooseObject;
+        let result = JSON.parse(JSON.stringify(sourceObj));
+        // for(let key of Object.keys(sourceObj))
+        //     result[key] = sourceObj[key];
         // TODO: implement this function from the above function definition.
-        return {} as T;
+        return result as T;
+        // return {} as T;
     }
 
 }
